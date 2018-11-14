@@ -49,7 +49,10 @@ class DBconnection:
 
     @classmethod
     def count(cls,collection):
-        return collection.find()
+        count=0
+        for elem in collection.find():
+            count=count+1
+        return count
     @classmethod
     def count_all(cls, collection):
         list = []

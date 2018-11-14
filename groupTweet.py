@@ -87,7 +87,7 @@ lsh = LSHash(6, 8)
 #     lsh.index(a)
 centriodSet = []
 Ind = 0
-for i in range(0, 82 - 1):
+for i in range(0, DBconnection.DBconnection.count(a.dbconnect_to_collection()) - 1):
     centriod = []
     j = 0
     while j < (tfidf.indptr[i + 1] - tfidf.indptr[i]):
@@ -108,7 +108,7 @@ for i in range(0, 82 - 1):
 count = np.zeros(82)
 
 index2 = tfidf.indptr[82]
-for i in range(82, DBconnection.DBconnection.count_all(b.dbconnect_to_collection()) - 1):
+for i in range(82, DBconnection.DBconnection.count(b.dbconnect_to_collection()) - 1):
     b = []
     j = 0
     while j < (tfidf.indptr[i + 1] - tfidf.indptr[i]):
