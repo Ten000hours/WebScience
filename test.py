@@ -116,7 +116,7 @@ for i in range(0, 82):
         j += 1
     if len(b) < 8:
         for index in range(8 - len(b)):
-            b.append(0.1)
+            b.append(0.5)
     fianlresu = lsh.query(b)
     whileflag = 0
     while not fianlresu and whileflag < 3:
@@ -143,6 +143,8 @@ for i in range(0, 82):
 print(count)
 
 plt.bar(["false", "true"], count)
+plt.title("evaluation with 0.5 deviation")
+plt.savefig("evaluation0.5.pdf",bbox="tight")
 plt.show()
 # for j in range(11, 22):
 #     # print(tfidf.toarray()[9][j])

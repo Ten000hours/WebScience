@@ -105,10 +105,11 @@ for i in range(0, DBconnection.DBconnection.count(a.dbconnect_to_collection()) -
     centriodSet.append(centriod)
 # print(centriodSet)
 
-count = np.zeros(82)
+count = np.zeros(DBconnection.DBconnection.count(a.dbconnect_to_collection()))
 
-index2 = tfidf.indptr[82]
-for i in range(82, DBconnection.DBconnection.count(b.dbconnect_to_collection()) - 1):
+index2 = tfidf.indptr[DBconnection.DBconnection.count(a.dbconnect_to_collection())]
+for i in range(DBconnection.DBconnection.count(a.dbconnect_to_collection()),
+               DBconnection.DBconnection.count(b.dbconnect_to_collection()) - 1):
     b = []
     j = 0
     while j < (tfidf.indptr[i + 1] - tfidf.indptr[i]):
@@ -146,7 +147,7 @@ print(sum(count))
 
 plt.bar(range(82), count, color=["red", "green", "blue"])
 plt.title("Tweets Cluster")
-plt.savefig("TwitterCluster.pdf",bbox="tight")
+plt.savefig("TwitterCluster.pdf", bbox="tight")
 plt.show()
 # for j in range(11, 22):
 #     # print(tfidf.toarray()[9][j])
