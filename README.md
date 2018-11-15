@@ -22,3 +22,4 @@ running following code to download
 ###
      nltk.download("corpus")
      nltk.download("stopwords")
+You also need to install MongoDB in advance and change the directory path in the code .
