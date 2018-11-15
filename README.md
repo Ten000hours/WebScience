@@ -42,3 +42,7 @@ Before running the python code,you need to import the json data (data.rar) into 
     mongoimport -d WEBSCIENCE -c Twitter_location_without_tag --file Twitter_location_without_tag.json --type json
     mongoimport -d WEBSCIENCE -c Twitter_location_with_tag --file Twitter_location_with_tag.json --type json
     mongoimport -d WEBSCIENCE -c GooglePlus_text_glasgow --file GooglePlus_text_glasgow.json --type json
+
+##Citaion
+This project applied following code :
+ LSH python version: https://github.com/totalgood/LSHash
