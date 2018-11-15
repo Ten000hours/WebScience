@@ -28,3 +28,12 @@ running following code to download
      nltk.download("corpus")
      nltk.download("stopwords")
 You also need to install MongoDB in advance and change the directory path in the code .
+
+## Data import
+Before running the python code,you need to import the json data using following code:
+
+###
+    mongoimport -d WEBSCIENCE -c Twitter_REST_search_geo --file Twitter_REST_search_geo.json --type json
+    mongoimport -d WEBSCIENCE -c Twitter_location_without_tag --file Twitter_location_without_tag.json --type json
+    mongoimport -d WEBSCIENCE -c Twitter_location_with_tag --file Twitter_location_with_tag.json --type json
+    mongoimport -d WEBSCIENCE -c GooglePlus_text_glasgow --file GooglePlus_text_glasgow.json --type json

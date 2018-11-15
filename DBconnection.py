@@ -77,6 +77,29 @@ class DBconnection:
         return list, time
 
     @classmethod
+    def count_all_google(cls, collection):
+        list = []
+        resultslist = []
+        count = 0
+        time = []
+        # starttime = parse(elem["created_at"])
+        for elem in collection.find():
+            resultslist.append(elem)
+        starttime = parse(resultslist[0]["published"])
+        temp = starttime
+        for elem in collection.find():
+            nowtime = parse(elem["published"])
+            if -(nowtime - temp) < timedelta(minutes=10):
+                count = count + 1
+            elif -(nowtime - temp) >= timedelta(minutes=10):
+                list.append(count)
+                count = 1
+                temp = nowtime
+                time.append(str(temp.strftime('%H:%M:%S')))
+
+        return list, time
+
+    @classmethod
     def count_twitter_with_geotag(cls, collection):
         list = []
         resultslist = []
@@ -102,6 +125,28 @@ class DBconnection:
                         break
 
         return list, time
+
+    @classmethod
+    def count_twitter_with_geotag_google(cls, collection):
+        list = []
+        resultslist = []
+        count = 0
+        # time = []
+        # starttime = parse(elem["created_at"])
+        for elem in collection.find():
+            resultslist.append(elem)
+        starttime = parse(resultslist[0]["published"])
+        temp = starttime
+        for elem in collection.find():
+            # nowtime = parse(elem["published"])
+            if "location" in elem:
+                for e in elem["location"].values():
+                    if (e == "Glasgow" ):
+                        count = count + 1
+
+
+
+        return count
 
     @classmethod
     def count_retweet(cls, collection):
