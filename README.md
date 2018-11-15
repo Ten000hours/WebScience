@@ -29,6 +29,8 @@ Using "pip install --" command to install following libs:
 Note that you may need to download corresponding lib of nltk,so before running the script
 running following code to download
 ###
+     import nltk
+
      nltk.download("corpus")
      nltk.download("stopwords")
 You also need to install MongoDB in advance and change the directory path in the code .
