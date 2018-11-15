@@ -16,3 +16,9 @@ https://github.com/Ten000hours/WebScience/blob/master/TwitterCluster.pdf
     regex
     sklearn.feature_extraction.text
     nltk.corpus
+
+Note that you may need to download corresponding lib of nltk,so before running the script
+running following code to download
+###
+     nltk.download("corpus")
+     nltk.download("stopwords")
