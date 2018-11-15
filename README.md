@@ -46,4 +46,4 @@ Before running the python code,you need to import the json data (data.rar) into 
 ## Citaion
 This project applied following code :
 ###
- LSH python version: https://github.com/totalgood/LSHash
+     LSH python version: https://github.com/totalgood/LSHash
