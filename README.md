@@ -30,7 +30,7 @@ running following code to download
 You also need to install MongoDB in advance and change the directory path in the code .
 
 ## Data import
-Before running the python code,you need to import the json data using following code:
+Before running the python code,you need to import the json data using following code in command prompt:
 
 ###
     mongoimport -d WEBSCIENCE -c Twitter_REST_search_geo --file Twitter_REST_search_geo.json --type json
