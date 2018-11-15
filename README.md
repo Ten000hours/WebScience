@@ -8,7 +8,11 @@ University of Glasgow Course Web Science CourseWork
 The result of grouping tweets:
 https://github.com/Ten000hours/WebScience/blob/master/TwitterCluster.pdf
 
+We also analysed another platform----Google Plus using the same method and the result of
+grouping data:
+https://github.com/Ten000hours/WebScience/blob/master/GoogleCluster.pdf
 ## requirements
+Using "pip install --" command to install following libs:
 ###
     tweepy
     pymongo
