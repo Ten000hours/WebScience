@@ -15,7 +15,7 @@ a = DBconnection.DBconnection('mongodb://localhost:27017/', "WEBSCIENCE", "Googl
 words = set(nltk.corpus.words.words())
 
 
-# 语料
+#
 corpus = []
 for elemt in a.dbconnect_to_collection().find():
 
@@ -34,28 +34,26 @@ for elemt in a.dbconnect_to_collection().find():
     # text = re.sub(r'@\S+|https?://\S+', '', elemt["text"])
     corpus.append(final)
 
-# 将文本中的词语转换为词频矩阵
+#  convert the words into word frequency matrix
 vectorizer1 = CountVectorizer()
 
 X = vectorizer1.fit_transform(corpus)
-# 获取词袋中所有文本关键词
+# get the keywords in corpus
 word = vectorizer1.get_feature_names()
-# print(word)
-# 查看词频结果
-# print(X.toarray())
+
 
 transformer = TfidfTransformer()
 
-# 将词频矩阵X统计成TF-IDF值
+#  calculate the TF-IDF values
 tfidf = transformer.fit_transform(X)
 
-# 查看数据结构 tfidf[i][j]表示i类文本中的tf-idf权重
-list = tfidf
+
+
 # print(tfidf)
 
 lsh = LSHash(6, 8)
 
-
+# seperate the geo-tagged data into two list
 locatList = []
 noneList = []
 for elemts in a.dbconnect_to_collection().find():
@@ -65,7 +63,7 @@ for elemts in a.dbconnect_to_collection().find():
                 locatList.append(elemts)
     else:
         noneList.append(elemts)
-
+# construct the centriodSet
 centriodSet = []
 Ind = 0
 for i in range(0, len(locatList)):
@@ -84,8 +82,8 @@ for i in range(0, len(locatList)):
     # if len(centriod)!=11:
     #     print(len(centriod),i)
     centriodSet.append(centriod)
-# print(centriodSet)
 
+# construct the noneList which contains non-geo data
 count = np.zeros(len(locatList))
 
 index2 = tfidf.indptr[len(locatList)]
@@ -117,12 +115,8 @@ for i in range(0,
             checklist.append(elem)
         count[centriodSet.index(checklist)] += 1
 
-        # assinglist[i] = assinglist[i] + " " + str(geolist[centriodSet.index(checklist)])
-        # # .append(geolist[centriodSet.index(checklist)])
-        # print(assinglist[i])
-
     index2 += tfidf.indptr[i + 1] - tfidf.indptr[i]
-
+# printout the result
 print(count)
 print(sum(count))
 

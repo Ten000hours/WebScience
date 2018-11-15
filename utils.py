@@ -24,9 +24,7 @@ consumer_key3 = 'AdknMlmyIZv8ZTznwJoZCP9dz'
 consumer_secret3 = 'Tl4kmNqlbrN69cKDrrcBLdJLZExtnO0PVZjFZm5AVLP6w2luEt'
 access_token3 = '1044622087233638405-GjekZZNXhspdSz7Peu25ncCa95TUpT'
 access_token_secret3 = 'IASub4f0nngsKUytnTCsiShtSGDl9QxqclDCmw7D4V7dF'
-# 提交你的Key和secret
-
-
+#authenticate the app
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 
@@ -38,7 +36,7 @@ auth2.set_access_token(access_token2, access_token_secret2)
 
 auth3 = tweepy.OAuthHandler(consumer_key3, consumer_secret3)
 auth3.set_access_token(access_token3, access_token_secret3)
-# 获取类似于内容句柄的东西
+# get the api
 api = tweepy.API(auth)
 
 api1 = tweepy.API(auth1)
@@ -46,11 +44,6 @@ api1 = tweepy.API(auth1)
 api2 = tweepy.API(auth2)
 
 api3 = tweepy.API(auth3)
-
-
-# 打印其他用户主页上的时间轴里的内容
-# for tweet in tweepy.Cursor(api.search,q='CS:GO').items(10):
-#     print('Tweet by: @' + tweet.user.screen_name)
 
 
 def search():
@@ -74,6 +67,7 @@ def dataCrawler():
     while 1:
         while 1:
             try:
+                # thread1
                 resultset = search()
                 for result in resultset:
                     itemDicts = result._json
@@ -89,6 +83,7 @@ def dataCrawler():
 
         while 1:
             try:
+                # theard2
                 resultset1 = search1()
                 for result1 in resultset1:
                     itemDicts1 = result1._json
@@ -104,6 +99,7 @@ def dataCrawler():
 
         while 1:
             try:
+                # thread3
                 resultset2 = search2()
                 for result2 in resultset2:
                     itemDicts2 = result2._json
@@ -119,6 +115,7 @@ def dataCrawler():
 
         while 1:
             try:
+                # theard4
                 resultset3 = search3()
                 for result3 in resultset3:
                     itemDicts3 = result3._json
@@ -135,8 +132,4 @@ def dataCrawler():
 
 
 if __name__ == '__main__':
-    # print(api)
-    # s=requests.Session()
-    # api=s.get(url, auth=authURL)
-    # print(api.text)
     dataCrawler()

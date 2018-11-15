@@ -22,8 +22,8 @@ for element in a.dbconnect_to_collection().find():
 assinglist = []
 for elemet in b.dbconnect_to_collection().find():
     assinglist.append(elemet["text"])
-# print(geolist[0])
-# 语料
+
+
 corpus = []
 for elemt in a.dbconnect_to_collection().find():
     text = re.sub('[^A-Za-z]+', ' ', elemt["text"])
@@ -57,34 +57,23 @@ for elemt in b.dbconnect_to_collection().find():
 
     corpus.append(text)
     # print(text)
-# 将文本中的词语转换为词频矩阵
+#  convert the words into word frequency matrix
 vectorizer1 = CountVectorizer()
 
 X = vectorizer1.fit_transform(corpus)
-# 获取词袋中所有文本关键词
+# get the keywords in corpus
 word = vectorizer1.get_feature_names()
-# print(word)
-# 查看词频结果
-# print(X.toarray())
+
 
 transformer = TfidfTransformer()
 
-# 将词频矩阵X统计成TF-IDF值
+#  calculate the TF-IDF values
 tfidf = transformer.fit_transform(X)
 
-# 查看数据结构 tfidf[i][j]表示i类文本中的tf-idf权重
-list = tfidf
-# print(tfidf)
+
 
 lsh = LSHash(6, 8)
-# len(tfidf.todense()[0]
-# for i in range(82):
-#     a = list()
-#     for j in range(11):
-#         # print(tfidf.toarray()[i][j])
-#         a.append(tfidf.toarray()[i][j])
-#     # print(a)
-#     lsh.index(a)
+# construct the centriodSet
 centriodSet = []
 Ind = 0
 for i in range(0, DBconnection.DBconnection.count(a.dbconnect_to_collection()) - 1):
@@ -100,11 +89,9 @@ for i in range(0, DBconnection.DBconnection.count(a.dbconnect_to_collection()) -
             centriod.append(0 + 1)
     lsh.index(centriod)
     Ind += tfidf.indptr[i + 1] - tfidf.indptr[i]
-    # if len(centriod)!=11:
-    #     print(len(centriod),i)
     centriodSet.append(centriod)
-# print(centriodSet)
 
+# construct the noneList which contains non-geo data
 count = np.zeros(DBconnection.DBconnection.count(a.dbconnect_to_collection()))
 
 index2 = tfidf.indptr[DBconnection.DBconnection.count(a.dbconnect_to_collection())]
@@ -137,11 +124,11 @@ for i in range(DBconnection.DBconnection.count(a.dbconnect_to_collection()),
         count[centriodSet.index(checklist)] += 1
 
         assinglist[i] = assinglist[i] + " " + str(geolist[centriodSet.index(checklist)])
-        # .append(geolist[centriodSet.index(checklist)])
+
         print(assinglist[i])
 
     index2 += tfidf.indptr[i + 1] - tfidf.indptr[i]
-
+# printout the result
 print(count)
 print(sum(count))
 
@@ -149,13 +136,4 @@ plt.bar(range(82), count, color=["red", "green", "blue"])
 plt.title("Tweets Cluster")
 plt.savefig("TwitterCluster.pdf", bbox="tight")
 plt.show()
-# for j in range(11, 22):
-#     # print(tfidf.toarray()[9][j])
-#     b.append(tfidf.toarray()[110][j])
-#     print(b)
-# print(b)
 
-# checklist = []
-# for elem in fianlresu:
-#     checklist.append(elem)
-# print(geolist[centriodSet.index(checklist)])

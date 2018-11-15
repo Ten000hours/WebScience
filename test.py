@@ -75,14 +75,7 @@ list = tfidf
 # print(tfidf)
 
 lsh = LSHash(6, 8)
-# len(tfidf.todense()[0]
-# for i in range(82):
-#     a = list()
-#     for j in range(11):
-#         # print(tfidf.toarray()[i][j])
-#         a.append(tfidf.toarray()[i][j])
-#     # print(a)
-#     lsh.index(a)
+
 centriodSet = []
 Ind = 0
 for i in range(0, 82):
@@ -146,13 +139,3 @@ plt.bar(["false", "true"], count)
 plt.title("evaluation with 0.5 deviation")
 plt.savefig("evaluation0.5.pdf",bbox="tight")
 plt.show()
-# for j in range(11, 22):
-#     # print(tfidf.toarray()[9][j])
-#     b.append(tfidf.toarray()[110][j])
-#     print(b)
-# print(b)
-
-# checklist = []
-# for elem in fianlresu:
-#     checklist.append(elem)
-# print(geolist[centriodSet.index(checklist)])

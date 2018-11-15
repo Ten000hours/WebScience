@@ -24,6 +24,11 @@ class DBconnection:
             self.collectionString = args[0]
 
     def dbconnect_to_collection(self):
+        '''
+        get the collection from database
+
+        :return: collection
+        '''
         try:
             myclient = pymongo.MongoClient(self.dburl)
 
@@ -34,6 +39,11 @@ class DBconnection:
             print("fail to connect to collection(table)")
 
     def insert_one_item(self, itemDictOne):
+        '''
+        insert one data into collection
+        :param itemDictOne: data (json)
+        :return:
+        '''
         x = self.dbconnect_to_collection().insert_one(itemDictOne)
         if x is not None:
             print("insert successfully")
@@ -41,6 +51,11 @@ class DBconnection:
             print("insert failed")
 
     def insert_many_item(self, itemDicts):
+        '''
+        insert many data into collection
+        :param itemDicts: data (json)
+        :return:
+        '''
         x = self.dbconnect_to_collection().insert_one(itemDicts)
         # if x is not None:
         #     # print("insert many successfully")
@@ -49,12 +64,23 @@ class DBconnection:
 
     @classmethod
     def count(cls,collection):
+        '''
+        get the number of data in collection
+        :param collection:
+        :return: the number of data
+        '''
         count=0
         for elem in collection.find():
             count=count+1
         return count
     @classmethod
     def count_all(cls, collection):
+        '''
+        count the number of data and divide these data into time period
+        :param collection:
+        :return: list
+                time
+        '''
         list = []
         resultslist = []
         count = 0
@@ -78,6 +104,11 @@ class DBconnection:
 
     @classmethod
     def count_all_google(cls, collection):
+        '''
+        count all function for google
+        :param collection:
+        :return:
+        '''
         list = []
         resultslist = []
         count = 0
@@ -101,6 +132,11 @@ class DBconnection:
 
     @classmethod
     def count_twitter_with_geotag(cls, collection):
+        '''
+        count the number of geotagged tweets and divide into time slice
+        :param collection:
+        :return: time list
+        '''
         list = []
         resultslist = []
         count = 0
@@ -128,6 +164,11 @@ class DBconnection:
 
     @classmethod
     def count_twitter_with_geotag_google(cls, collection):
+        '''
+        count geo for google plus
+        :param collection:
+        :return:
+        '''
         list = []
         resultslist = []
         count = 0
@@ -150,6 +191,11 @@ class DBconnection:
 
     @classmethod
     def count_retweet(cls, collection):
+        '''
+        count the retweet number in collection
+        :param collection:
+        :return:
+        '''
         list = []
         resultslist = []
         count = 0
@@ -212,6 +258,12 @@ class DBconnection:
 
     @classmethod
     def redundant_tweets_count(cls, collec1, collec2):
+        '''
+        count redundent tweets from two different collections
+        :param collec1: string
+        :param collec2: string
+        :return: print out the same tweets
+        '''
         collection1 = collec1
         collection2 = collec2
         db = MongoClient().WEBSCIENCE
