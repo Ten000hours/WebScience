@@ -8,8 +8,10 @@ import nltk
 import numpy as np
 from matplotlib import pyplot as plt
 
+# please pre-run the following code to download the lib
 # nltk.download("corpus")
 # nltk.download("stopwords")
+# change the directory path before running code
 a = DBconnection.DBconnection('mongodb://localhost:27017/', "WEBSCIENCE", "Twitter_location_with_tag")
 b = DBconnection.DBconnection('mongodb://localhost:27017/', "WEBSCIENCE", "Twitter_location_without_tag")
 

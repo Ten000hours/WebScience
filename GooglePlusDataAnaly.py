@@ -8,8 +8,11 @@ import nltk
 import numpy as np
 from matplotlib import pyplot as plt
 
+
+# please pre-run the following code to download the lib
 # nltk.download("corpus")
 # nltk.download("stopwords")
+# change the directory path before running code
 a = DBconnection.DBconnection('mongodb://localhost:27017/', "WEBSCIENCE", "GooglePlus_text_glasgow")
 
 words = set(nltk.corpus.words.words())
@@ -116,7 +119,7 @@ for i in range(0,
         count[centriodSet.index(checklist)] += 1
 
     index2 += tfidf.indptr[i + 1] - tfidf.indptr[i]
-# printout the result
+# print out the result
 print(count)
 print(sum(count))
 

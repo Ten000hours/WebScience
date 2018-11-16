@@ -293,18 +293,11 @@ class DBconnection:
 
 if __name__ == '__main__':
     a = DBconnection('mongodb://localhost:27017/', "WEBSCIENCE", "twitter_REST_search_geo")
-    # # for elem in a.dbconnect_to_collection().find():
-    # #     print(elem)
-    # print(DBconnection.count_twitter_with_geotag(a.dbconnect_to_collection()))
-    # for elemt in a.dbconnect_to_collection().find():
-    #     print(elemt["geo"])
-    # print(DBconnection.count_twitter_with_geotag(a.dbconnect_to_collection()))
+
+    #if you want to check different figure, please change the function in following code
 
     list, time = DBconnection.count_quotes(a.dbconnect_to_collection())
     plt.bar(range(len(list)), list)
     plt.xticks(range(len(time)), time)
     plt.savefig("countquote.pdf")
     plt.show()
-    # DBconnection.redundant_tweets_count("Twitter_location_without_tag", "Twitter_location_with_tag")
-    # mystreaming = tweepy.Stream(auth=utils.api.auth, listener=api)
-    # mystreaming.filter(track=['glasgow'],locations=[-85.966087,36.956463,-85.871681,37.04779])
