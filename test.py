@@ -55,30 +55,25 @@ for elemt in b.dbconnect_to_collection().find():
 
     corpus.append(text)
     # print(text)
-# 将文本中的词语转换为词频矩阵
+
 vectorizer1 = CountVectorizer()
 
 X = vectorizer1.fit_transform(corpus)
-# 获取词袋中所有文本关键词
+
 word = vectorizer1.get_feature_names()
-# print(word)
-# 查看词频结果
-# print(X.toarray())
+
 
 transformer = TfidfTransformer()
 
-# 将词频矩阵X统计成TF-IDF值
+
 tfidf = transformer.fit_transform(X)
 
-# 查看数据结构 tfidf[i][j]表示i类文本中的tf-idf权重
-list = tfidf
-# print(tfidf)
 
 lsh = LSHash(6, 8)
 
 centriodSet = []
 Ind = 0
-for i in range(0, 82):
+for i in range(0, DBconnection.DBconnection.count(a.dbconnect_to_collection())):
     centriod = []
     j = 0
     while j < (tfidf.indptr[i + 1] - tfidf.indptr[i]):
@@ -99,7 +94,7 @@ for i in range(0, 82):
 count = np.zeros(2)
 
 index2 = tfidf.indptr[0]
-for i in range(0, 82):
+for i in range(0, DBconnection.DBconnection.count(a.dbconnect_to_collection())):
     b = []
     j = 0
     while j < (tfidf.indptr[i + 1] - tfidf.indptr[i]):
@@ -109,7 +104,7 @@ for i in range(0, 82):
         j += 1
     if len(b) < 8:
         for index in range(8 - len(b)):
-            b.append(0.5)
+            b.append(0.5)# deviation here
     fianlresu = lsh.query(b)
     whileflag = 0
     while not fianlresu and whileflag < 3:

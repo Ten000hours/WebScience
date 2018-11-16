@@ -4,7 +4,7 @@ import time
 import DBconnection
 import pymongo
 
-# 填写twitter提供的开发Key和secret
+# write twitter app Key and secret
 consumer_key = 'bUmXauYbisGchViaqZbMG7g8f'
 consumer_secret = 'TswyyoJcDMNYyVvPHl1D2WKZpzXflJENhsGL67CAVNo2kmeSOY'
 access_token = '1044622087233638405-hxKawUPQlGpSju2ML9jW0xt2JhMS8J'
