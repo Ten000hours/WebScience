@@ -5,25 +5,25 @@ import DBconnection
 import pymongo
 
 # write twitter app Key and secret
-consumer_key = ''
-consumer_secret = ''
-access_token = ''
-access_token_secret = ''
+consumer_key = 'bUmXauYbisGchViaqZbMG7g8f'
+consumer_secret = 'TswyyoJcDMNYyVvPHl1D2WKZpzXflJENhsGL67CAVNo2kmeSOY'
+access_token = '1044622087233638405-hxKawUPQlGpSju2ML9jW0xt2JhMS8J'
+access_token_secret = 'ugzvh4cseojtvUkyFAHlIRhpgDlR88y9updT2IgVdQyCp'
 # webscienceThread1
-consumer_key1 = ''
-consumer_secret1 = ''
-access_token1 = ''
-access_token_secret1 = ''
+consumer_key1 = 'bVgSyb5H9bmIv6njKCb2M0hM2'
+consumer_secret1 = 'qMFmw4KGct863P8hRvQsQ7AEmH0Vn7URTJJY7CBxmizvojvxIU'
+access_token1 = '1044622087233638405-P19LVO9XLEwxBXfpGpxBalafvcvlNC'
+access_token_secret1 = '3DNVkUexxIyK8qaGPMPjQOzOvKqmXJ94l9mhJCNwJwoUL'
 # webscienceThread2
-consumer_key2 = ''
-consumer_secret2 = ''
-access_token2 = ''
-access_token_secret2 = ''
+consumer_key2 = 'lGEYDRWFjSsSwIRYDbtxiB9sZ'
+consumer_secret2 = 'b4SehwyftBMytQcxPbkxOfE26Wz0APxBNMPEPsYEHra3bRh4Z0'
+access_token2 = '1044622087233638405-f7s4Wwvc2t4knvRRL30Dpe2b4ZVycg'
+access_token_secret2 = 'MoaGywcu3nBe3ZbCwLRFi0IsF4BppMn1A1dD8ckbIWxCk'
 # webscienceThread3
-consumer_key3 = ''
-consumer_secret3 = ''
-access_token3 = ''
-access_token_secret3 = ''
+consumer_key3 = 'AdknMlmyIZv8ZTznwJoZCP9dz'
+consumer_secret3 = 'Tl4kmNqlbrN69cKDrrcBLdJLZExtnO0PVZjFZm5AVLP6w2luEt'
+access_token3 = '1044622087233638405-GjekZZNXhspdSz7Peu25ncCa95TUpT'
+access_token_secret3 = 'IASub4f0nngsKUytnTCsiShtSGDl9QxqclDCmw7D4V7dF'
 #authenticate the app
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
