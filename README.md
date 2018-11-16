@@ -1,4 +1,4 @@
-# WebScience
+# WebScience  PLEASE DO NOT USE THIS PROJECT BEFORE 11/19/2018 IF YOU ARE ALSO IN WEB SCIENCE COURSE IN UofG
 This is the implementation of Twitter data crawler and its data analyse code.
 Using TF-IDF and LSH(locality sensitive Hashing) to group tweets and assign geo-tags
 to those non-geotagged tweets.
