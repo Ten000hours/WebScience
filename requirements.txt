@@ -109,7 +109,7 @@ query-string==1.0.1
 redis==2.10.6
 regex==2018.8.29
 request==1.0.1
-requests==2.18.4
+requests==2.20.0
 requests-oauthlib==1.0.0
 rsa==4.0
 scikit-image==0.13.1
