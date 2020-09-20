@@ -3,7 +3,7 @@ This is the implementation of Twitter data crawler and its data analyse code.
 Using TF-IDF and LSH(locality sensitive Hashing) to group tweets and assign geo-tags
 to those non-geotagged tweets.
 
-University of Glasgow Course Web Science CourseWork
+University of Glasgow
 
 The result of grouping tweets:
 https://github.com/Ten000hours/WebScience/blob/master/TwitterCluster.pdf
