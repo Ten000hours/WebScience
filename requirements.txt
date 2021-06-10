@@ -16,7 +16,7 @@ curses-2048==1.4
 cycler==0.10.0
 Cython==0.28.5
 decorator==4.3.0
-Django==2.0.5
+Django==2.2.24
 docutils==0.14
 entrypoints==0.2.3
 facepy==1.0.8
