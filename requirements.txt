@@ -65,7 +65,7 @@ notebook==5.5.0
 numpy==1.14.2
 oauth2==1.9.0.post1
 oauthlib==2.1.0
-opencv-python==3.4.1.15
+opencv-python==4.2.0.32
 pandocfilters==1.4.2
 parso==0.2.0
 pefile==2018.8.8
