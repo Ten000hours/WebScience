@@ -51,7 +51,7 @@ Kivy==1.10.1
 Kivy-Garden==0.1.4
 kiwisolver==1.0.1
 lshash3==0.0.8
-lxml==4.2.4
+lxml==4.6.5
 macholib==1.11
 Markdown==2.6.11
 MarkupSafe==1.0
